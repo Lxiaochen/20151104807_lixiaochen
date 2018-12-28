@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.qst.dao.FinanceDao">
+	<insert id="addFinance" parameterType="com.qst.pojos.Finance">
+		insert into Finance values(null,#{detail },#{remark },#{userName  })
+	</insert>
+	<select id="listFinance" resultType="com.qst.pojos.Finance" >
+		select * from Finance
+	</select>
+	<delete id="deleteFinance" parameterType="int">
+		delete from Finance where financeId=#{1}
+	</delete>
+</mapper>

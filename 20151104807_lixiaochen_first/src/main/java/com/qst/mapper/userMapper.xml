@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.qst.dao.UserDao">
+	<!-- #{userName}用来获取实体类中的属性 -->
+	<insert id="addUser" parameterType="com.qst.pojos.User" >
+		insert into users values(null,#{userName},#{userPwd},#{sex},#{userTel},#{address})
+	</insert>
+	
+	<select id="login" parameterType="com.qst.pojos.User" >
+		select * from users where userName=#{userName} and userPwd=#{userPwd}
+	</select>
+	
+	<select id="listAllUsers" resultType="com.qst.pojos.User" parameterType="com.qst.pojos.User">
+		select * from users
+	</select>
+	
+	<select id="listUsers" resultType="com.qst.pojos.User">
+		select * from users where username=#{userName}
+	</select>
+	
+	<select id="listAllUsersByJson" resultType="com.qst.pojos.User" >
+		select * from users
+	</select>
+	
+	<select id="getTotalPageNum" resultType="Integer">
+		select count(*) from users
+	</select>
+	
+	<select id="findUserById" parameterType="Integer" resultType="com.qst.pojos.User">
+		select * from users where userid=#{userId}
+	</select>
+	
+	<update id="updateUser" parameterType="com.qst.pojos.User">
+		update users set username=#{userName},address=#{address},usertel=#{userTel} where userid=#{userId}
+	</update>
+	
+	<delete id="deleteUser" parameterType="int" >
+		delete from users where userid=#{userId}
+	</delete>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<!-- <insert id="insertUserRole">
+		insert into userrole values(#{0},#{1})
+	</insert>
+	
+	<resultMap type="com.oracle.mybatis.user.entity.User" id="userRole">
+	<result property="userId" column="userid"/>
+	<result property="userName" column="usrename"/>
+	<result property="userPwd" column="userpwd"/>
+	<collection property="listRole" ofType="com.oracle.mybatis.user.entity.Role" column="userid">
+	  <result property="roleId" column="roleid"/>
+	   <result property="roleName" column="rolename"/>
+	</collection>
+	</resultMap>
+	<select id="showUserList" resultMap="userRole">
+		select u.userid,usrename,userpwd,r.roleid,rolename from userrole ur,user u,role r where ur.roleid=r.roleid and ur.userid=u.userid
+	</select>
+	<update id="updateUser" parameterType="com.oracle.mybatis.user.entity.User">
+		update user set usrename=#{userName},userpwd=#{userPwd} where
+		userid=#{userId}
+	</update>
+	<delete id="deleteUserById" parameterType="int">
+		delete from user where userid=#{userId}
+	</delete> -->
+	
+</mapper>

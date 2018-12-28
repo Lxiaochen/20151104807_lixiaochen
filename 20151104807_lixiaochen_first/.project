@@ -20,11 +20,4 @@
 		<nature>org.eclipse.jdt.core.javanature</nature>
 		<nature>org.eclipse.m2e.core.maven2Nature</nature>
 	</natures>
-	<linkedResources>
-		<link>
-			<name>src/main</name>
-			<type>2</type>
-			<locationURI>PARENT-2-PROJECT_LOC/Desktop/InventoryManage/src/main</locationURI>
-		</link>
-	</linkedResources>
 </projectDescription>

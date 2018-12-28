@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.qst.dao.ProductDao">
+	<!-- #{userName}用来获取实体类中的属性 -->
+	<insert id="addProduct" parameterType="com.qst.pojos.Product" >
+		insert into product values(null,#{productName},#{productPrice},#{productNum},#{remark},0)
+	</insert>
+	
+	<select id="listAllProducts" resultType="com.qst.pojos.Product" parameterType="com.qst.pojos.Product">
+		select * from product
+	</select>
+	
+	<select id="listProducts" resultType="com.qst.pojos.Product">
+		select * from product where productname=#{productName}
+	</select>
+	
+	
+	<select id="getTotalPageNum" resultType="Integer">
+		select count(*) from product
+	</select>
+	
+	<select id="getTotalPageNum2" resultType="Integer">
+		select count(*) from product where warningnum!=0
+	</select>
+	
+	<select id="findProductById" parameterType="Integer" resultType="com.qst.pojos.Product">
+		select * from product where productid=#{productId}
+	</select>
+	
+	<select id="findWarningById" parameterType="Integer" resultType="com.qst.pojos.Product">
+		select productid,productnum from product where productid=#{productId}
+	</select>
+	
+	<update id="updateProduct" parameterType="com.qst.pojos.Product">
+		update product set productname=#{productName},productprice=#{productPrice},productnum=#{productNum},remark=#{remark} where productid=#{productId}
+	</update>
+	
+	<update id="updateProduct2" parameterType="Integer">
+		update product set warningnum=#{0} where productid=#{1}
+	</update>
+	
+	<update id="updateProduct3" parameterType="Integer">
+		update product set warningnum=0 where productid=#{productId}
+	</update>
+	
+	<update id="updateWarning" parameterType="Integer">
+		update product set warningnum=#{warningNum} where productid=#{productId}
+	</update>
+	
+	
+	<delete id="deleteProduct" parameterType="int" >
+		delete from product where productid=#{productId}
+	</delete>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<!-- <insert id="insertUserRole">
+		insert into userrole values(#{0},#{1})
+	</insert>
+	
+	<resultMap type="com.oracle.mybatis.user.entity.User" id="userRole">
+	<result property="userId" column="userid"/>
+	<result property="userName" column="usrename"/>
+	<result property="userPwd" column="userpwd"/>
+	<collection property="listRole" ofType="com.oracle.mybatis.user.entity.Role" column="userid">
+	  <result property="roleId" column="roleid"/>
+	   <result property="roleName" column="rolename"/>
+	</collection>
+	</resultMap>
+	<select id="showUserList" resultMap="userRole">
+		select u.userid,usrename,userpwd,r.roleid,rolename from userrole ur,user u,role r where ur.roleid=r.roleid and ur.userid=u.userid
+	</select>
+	<update id="updateUser" parameterType="com.oracle.mybatis.user.entity.User">
+		update user set usrename=#{userName},userpwd=#{userPwd} where
+		userid=#{userId}
+	</update>
+	<delete id="deleteUserById" parameterType="int">
+		delete from user where userid=#{userId}
+	</delete> -->
+	
+</mapper>

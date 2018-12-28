@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.qst.dao.OutboudDao">
+	<insert id="addOutboud" parameterType="com.qst.pojos.Outboud">
+		insert into outboud values(null,#{outboudName},#{typeName },#{number },#{remark  })
+	</insert>
+	<select id="listOutbound" resultType="com.qst.pojos.Outboud" >
+		select * from outboud
+	</select>
+	<delete id="deleteOutboud" parameterType="int">
+		delete from outboud where outboudId=#{1}
+	</delete>
+</mapper>

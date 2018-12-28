@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+	<!-- 配置数据信息，主备模式 -->
+	<!-- 用来加载mapper.xml -->
+	<mappers>
+		<mapper resource="com/qst/mapper/typeMapper.xml" />
+		<mapper resource="com/qst/mapper/inboundMapper.xml" />
+		<mapper resource="com/qst/mapper/outboudMapper.xml" /> 
+	    <mapper resource="com/qst/mapper/orderMapper.xml" />
+		<mapper resource="com/qst/mapper/financeMapper.xml" />
+		<mapper resource="com/qst/mapper/productMapper.xml" />
+		<mapper resource="com/qst/mapper/userMapper.xml" />
+	</mappers>
+</configuration>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.qst.dao.OrderDao">
+	<insert id="addOrder" parameterType="com.qst.pojos.Order">
+		insert into order1 values(null,#{orderName},#{number})
+	</insert>
+	<select id="listOrder" resultType="com.qst.pojos.Order" >
+		select * from order1
+	</select>
+	<delete id="deleteOrder" parameterType="int">
+		delete from order1 where orderId=#{1}
+	</delete>
+</mapper>

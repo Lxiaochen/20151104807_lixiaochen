@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.qst.dao.InboundDao">
+	<insert id="addInbound" parameterType="com.qst.pojos.Inbound">
+		insert into Inbound values(null,#{inboundName},#{typeName },#{number },#{remark  })
+	</insert>
+	<select id="listInbound" resultType="com.qst.pojos.Inbound" >
+		select * from Inbound
+	</select>
+	<delete id="deleteInbound" parameterType="int">
+		delete from Inbound where InboundId=#{1}
+	</delete>
+</mapper>
